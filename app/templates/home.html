@@ -1,0 +1,32 @@
+{% extends './body.html' %}
+
+{% block title %}Home{% endblock title %}
+
+{% block container %}
+<div class="row">
+    <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
+        <h1>{{ data.title }}</h1>
+    </div>
+</div>
+
+<hr>
+
+{% if data.lots|length > 0 %}
+    {% for l in data.lots %}
+        <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4">
+            <div class="card mb-4 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">{{ l.title }}</h5>
+                    <p class="card-text"> Date created: {{ l.date_created }}</p>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+{% else %}
+    <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
+        <h2>You haven't created lots yet!</h2>
+    </div>
+{% endif %}
+
+</div>
+{% endblock container %}
