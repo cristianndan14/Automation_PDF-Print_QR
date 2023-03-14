@@ -1,0 +1,38 @@
+{% extends './body.html' %}
+
+{% block title %}Add Book{% endblock title %}
+
+{% block customCSS %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+{% endblock customCSS %}
+
+{% block body %}
+
+
+
+<form class="form-signin w-100 m-auto" enctype="multipart/form-data" action="/button_form" method="POST">
+    <div class="row">
+      <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
+          <h1>Lot...</h1>
+      </div>
+    </div>
+    <hr>
+    <div class="form-group">
+      <label for="Lot">Select Lot</label>
+      <select class="form-control" id="Lot" name="Lot" required>
+          <option>...</option>
+          {% for L in data.lots %}
+            <option value="{{ L.id_lot}}">{{ L.title }}</option>
+          {% endfor %}
+      </select>
+    </div>
+    <div>
+      <button class="w-100 btn btn-lg btn-primary" type="submit">View</button>
+    </div>
+</form>
+
+{% endblock body %}
+
+
+{% block customJS %}
+{% endblock customJS %}
